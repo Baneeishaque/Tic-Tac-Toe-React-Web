@@ -274,26 +274,33 @@ jobs:
         architecture: ${{ matrix.architecture }}
         check-latest: true
 
-    - name: Check existence of Yarn
-      run: which yarn
+#     - name: Check existence of Yarn
+#       run: which yarn
     
-    - name: Check Workspace
-      run: echo $GITHUB_WORKSPACE
+#     - name: Check Workspace
+#       run: echo $GITHUB_WORKSPACE
 
-    - name: List Workspace Contents
-      run: ls --all $GITHUB_WORKSPACE
+#     - name: List Workspace Contents
+#       run: ls --all $GITHUB_WORKSPACE
     
-    - name: Install Yarn
-      run: npm install yarn
+#     - name: Install Yarn
+#       run: npm install yarn
+
+    - name: Install Yarn, Checking Yarn, Install dependencies, Running tests
+      run: |
+        npm install -g yarn
+        yarn --version
+        yarn install
+        yarn test
+
+#     - name: List Workspace Contents
+#       run: ls --all $GITHUB_WORKSPACE
     
-    - name: List Workspace Contents
-      run: ls --all $GITHUB_WORKSPACE
+#     - name: Checking Yarn
+#       run: ./$GITHUB_WORKSPACE/node_modules/.bin/yarn --version
     
-    - name: Checking Yarn
-      run: ./$GITHUB_WORKSPACE/node_modules/.bin/yarn --version
+#     - name: Install dependencies
+#       run: ./$GITHUB_WORKSPACE/node_modules/.bin/yarn install
     
-    - name: Install dependencies
-      run: ./$GITHUB_WORKSPACE/node_modules/.bin/yarn install
-    
-    - name: Running tests
-      run: ./$GITHUB_WORKSPACE/node_modules/.bin/yarn test
+#     - name: Running tests
+#       run: ./$GITHUB_WORKSPACE/node_modules/.bin/yarn test
