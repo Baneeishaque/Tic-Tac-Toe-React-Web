@@ -275,13 +275,13 @@ jobs:
         check-latest: true
         
     - name: Install Yarn
-      run: npm install -g yarn
+      run: npm install yarn
     
     - name: Checking Yarn
-      run: yarn --version
+      run: ./node_modules/.bin/yarn --version
     
     - name: Install dependencies
-      run: yarn install
+      run: ./node_modules/.bin/yarn install
     
     - name: Running tests
-      run: yarn test
+      run: ./node_modules/.bin/yarn test
