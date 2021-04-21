@@ -273,9 +273,18 @@ jobs:
         node-version: ${{ matrix.node-version }}
         architecture: ${{ matrix.architecture }}
         check-latest: true
-        
+
+    - name: Check existence of Yarn
+      run: which yarn
+    
+    - name: Check Workspace
+      run: echo $GITHUB_WORKSPACE
+
     - name: Install Yarn
       run: npm install yarn
+    
+    - name: List Workspace Contents
+      run: ls --all $GITHUB_WORKSPACE
     
     - name: Checking Yarn
       run: ./node_modules/.bin/yarn --version
