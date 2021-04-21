@@ -280,6 +280,9 @@ jobs:
     - name: Check Workspace
       run: echo $GITHUB_WORKSPACE
 
+    - name: List Workspace Contents
+      run: ls --all $GITHUB_WORKSPACE
+    
     - name: Install Yarn
       run: npm install yarn
     
@@ -287,10 +290,10 @@ jobs:
       run: ls --all $GITHUB_WORKSPACE
     
     - name: Checking Yarn
-      run: ./node_modules/.bin/yarn --version
+      run: ./$GITHUB_WORKSPACE/node_modules/.bin/yarn --version
     
     - name: Install dependencies
-      run: ./node_modules/.bin/yarn install
+      run: ./$GITHUB_WORKSPACE/node_modules/.bin/yarn install
     
     - name: Running tests
-      run: ./node_modules/.bin/yarn test
+      run: ./$GITHUB_WORKSPACE/node_modules/.bin/yarn test
