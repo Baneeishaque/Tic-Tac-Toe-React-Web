@@ -29,10 +29,16 @@ jobs:
           - os: ubuntu-latest
             node-version: 12.x
             architecture: x86
+          - os: ubuntu-latest
+            node-version: 14.x
+            architecture: armv6l
             
           - os: ubuntu-latest
             node-version: 14.x
             architecture: x86
+          - os: ubuntu-latest
+            node-version: 14.x
+            architecture: armv6l
             
           - os: ubuntu-latest
             node-version: 15.x
@@ -265,6 +271,8 @@ jobs:
         check-latest: true
 #     - name: Install Yarn
 #       run: npm install -g yarn
+    - name: Checking Yarn
+      run: yarn --version
     - name: Install dependencies
       run: yarn install
     - name: Running tests
